@@ -3,14 +3,11 @@ One script which generates fully functional live Linux ISO image with minimal ef
 
 The script below uses **Linux kernel 3.15.6** and **BusyBox 1.22.1**. If you are using [Ubuntu](http://ubuntu.com) or [Linux Mint](http://linuxmint.com), you should be able to resolve all build dependencies by executing the following command:
 
-```
-sudo apt-get install wget bc build-essential gawk syslinux genisoimage
-```
+```sudo apt-get install wget bc build-essential gawk syslinux genisoimage```
 
 After that simply run the below script. In the end you should have a bootable ISO image named `minimal_linux_live.iso` in the same directory where you executed the script.
 
-```
-rm -rf work
+```rm -rf work
 mkdir work
 cd work
 rm -f linux-3.15.6.tar.xz
@@ -63,7 +60,6 @@ rm -f ../../minimal_linux_live.iso
 cd ../kernel/linux-3.15.6
 make isoimage FDINITRD=../../rootfs.cpio.gz
 cp arch/x86/boot/image.iso ../../../minimal_linux_live.iso
-cd ../../..
-```
+cd ../../..```
 
 Note that this produces very small live Linux OS with almost no useful functionality (apart from working shell) and no proper network support. The network support has been handled properly in the [Minimal Linux Live](http://github.com/ivandavidov/minimal) project which is extensively documented and more feature rich, yet still produces very small live Linux ISO image.
