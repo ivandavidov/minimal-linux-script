@@ -62,4 +62,4 @@ After that simply run the below script. In the end you should have a bootable IS
     cp arch/x86/boot/image.iso ../../../minimal_linux_live.iso
     cd ../../..
 
-Note that this produces very small live Linux OS with almost no useful functionality (apart from working shell) and no proper network support. The network support has been handled properly in the [Minimal Linux Live](http://github.com/ivandavidov/minimal) project which is extensively documented and more feature rich, yet still produces very small live Linux ISO image.
+Note that this produces very small live Linux OS with working shell and no proper network support. The network support has been implemented properly in the [Minimal Linux Live](http://github.com/ivandavidov/minimal) project which is extensively documented and more feature rich, yet still produces very small live Linux ISO image.
