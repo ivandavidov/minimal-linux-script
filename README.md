@@ -5,7 +5,7 @@ The script below uses **Linux kernel 3.15.6** and **BusyBox 1.22.1**. The source
 
     sudo apt-get install wget bc build-essential gawk syslinux genisoimage
 
-After that simply run the below script. In the end you should have a bootable ISO image named `minimal_linux_live.iso` in the same directory where you executed the script.
+After that simply run the below script. It doesn't require root privileges. In the end you should have a bootable ISO image named `minimal_linux_live.iso` in the same directory where you executed the script.
 
     rm -rf work
     mkdir work
