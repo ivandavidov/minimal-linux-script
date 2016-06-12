@@ -8,21 +8,14 @@ The script below uses **Linux kernel 4.6.2** and **BusyBox 1.24.2**. The source 
 After that simply run the below script. It doesn't require root privileges. In the end you should have a bootable ISO image named `minimal_linux_live.iso` in the same directory where you executed the script.
 
     wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.6.2.tar.xz
-    tar -xvf linux-4.6.2.tar.xz
-    cd linux-4.6.2
-    make mrproper defconfig bzImage
-    cd ..
     wget http://busybox.net/downloads/busybox-1.24.2.tar.bz2
-    tar -xvf busybox-1.24.2.tar.bz2
+    tar -xvf linux-4.6.2.tar.xz busybox-1.24.2.tar.bz2
     cd busybox-1.24.2
-    make distclean defconfig
-    sed -i "s/.*CONFIG_STATIC.*/CONFIG_STATIC=y/" .config
-    make busybox install
+    make CONFIG_STATIC=y distclean defconfig busybox install -j 4
     cd _install
     rm -f linuxrc
     mkdir dev proc sys
     echo '#!/bin/sh' > init
-    echo 'dmesg -n 1' >> init
     echo 'mount -t devtmpfs none /dev' >> init
     echo 'mount -t proc none /proc' >> init
     echo 'mount -t sysfs none /sys' >> init
@@ -30,7 +23,7 @@ After that simply run the below script. It doesn't require root privileges. In t
     chmod +x init
     find . | cpio -R root:root -H newc -o | gzip > ../../rootfs.cpio.gz
     cd ../../linux-4.6.2
-    make isoimage FDINITRD=../rootfs.cpio.gz
+    make mrproper defconfig bzImage isoimage FDINITRD=../rootfs.cpio.gz -j 4
     cp arch/x86/boot/image.iso ../minimal_linux_live.iso
     cd ..
 
