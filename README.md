@@ -19,6 +19,7 @@ After that simply run the below script. It doesn't require root privileges. In t
     rm -f linuxrc
     mkdir dev proc sys
     echo '#!/bin/sh' > init
+    echo 'dmesg -n 1' >> init
     echo 'mount -t devtmpfs none /dev' >> init
     echo 'mount -t proc none /proc' >> init
     echo 'mount -t sysfs none /sys' >> init
