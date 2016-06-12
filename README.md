@@ -9,13 +9,17 @@ After that simply run the below script. It doesn't require root privileges. In t
 
     wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.6.2.tar.xz
     wget http://busybox.net/downloads/busybox-1.24.2.tar.bz2
-    tar -xvf linux-4.6.2.tar.xz busybox-1.24.2.tar.bz2
+    tar -xvf linux-4.6.2.tar.xz
+    tar -xvf busybox-1.24.2.tar.bz2
     cd busybox-1.24.2
-    make CONFIG_STATIC=y distclean defconfig busybox install -j 4
+    make distclean defconfig
+    sed -i "s/.*CONFIG_STATIC.*/CONFIG_STATIC=y/" .config
+    make busybox install
     cd _install
     rm -f linuxrc
     mkdir dev proc sys
     echo '#!/bin/sh' > init
+    echo 'dmesg -n 1' >> init
     echo 'mount -t devtmpfs none /dev' >> init
     echo 'mount -t proc none /proc' >> init
     echo 'mount -t sysfs none /sys' >> init
@@ -23,7 +27,8 @@ After that simply run the below script. It doesn't require root privileges. In t
     chmod +x init
     find . | cpio -R root:root -H newc -o | gzip > ../../rootfs.cpio.gz
     cd ../../linux-4.6.2
-    make mrproper defconfig bzImage isoimage FDINITRD=../rootfs.cpio.gz -j 4
+    make mrproper defconfig bzImage
+    make isoimage FDINITRD=../rootfs.cpio.gz
     cp arch/x86/boot/image.iso ../minimal_linux_live.iso
     cd ..
 
