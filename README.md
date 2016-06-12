@@ -28,7 +28,7 @@ After that simply run the below script. It doesn't require root privileges. In t
     echo 'mount -t sysfs none /sys' >> init
     echo 'setsid cttyhack /bin/sh' >> init
     chmod +x init
-    find . | cpio -H newc -o | gzip > ../../rootfs.cpio.gz
+    find . | cpio -R root:root -H newc -o | gzip > ../../rootfs.cpio.gz
     cd ../../linux-4.6.2
     make isoimage FDINITRD=../rootfs.cpio.gz
     cp arch/x86/boot/image.iso ../minimal_linux_live.iso
