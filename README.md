@@ -1,5 +1,5 @@
 # Minimal Linux Script
-One script which generates fully functional live Linux ISO image with minimal effort (less than 30 lines of code). This is based on the first published version of [Minimal Linux Live](http://github.com/ivandavidov/minimal) with some minor improvements taken from the next releases. All empty lines and comments have been removed and the script has been modified to reduce the overall length.
+One script which generates fully functional live Linux ISO image with minimal effort (less than 25 lines of code). This is based on the first published version of [Minimal Linux Live](http://github.com/ivandavidov/minimal) with some minor improvements taken from the next releases. All empty lines and comments have been removed and the script has been modified to reduce the overall length.
 
 The script below uses **Linux kernel 4.6.2** and **BusyBox 1.24.2**. The source bundles are downloaded and compiled automatically. If you are using [Ubuntu](http://ubuntu.com) or [Linux Mint](http://linuxmint.com), you should be able to resolve all build dependencies by executing the following command:
 
@@ -19,7 +19,6 @@ After that simply run the below script. It doesn't require root privileges. In t
     rm -f linuxrc
     mkdir dev proc sys
     echo '#!/bin/sh' > init
-    echo 'dmesg -n 1' >> init
     echo 'mount -t devtmpfs none /dev' >> init
     echo 'mount -t proc none /proc' >> init
     echo 'mount -t sysfs none /sys' >> init
