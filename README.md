@@ -25,7 +25,7 @@ After that simply run the below script. It doesn't require root privileges. In t
     echo 'mount -t sysfs none /sys' >> init
     echo 'setsid cttyhack /bin/sh' >> init
     chmod +x init
-    find . | cpio -R root:root -H newc -o | gzip > ../../rootfs.cpio.gz
+    find . | cpio -R +0:+0 -H newc -o | gzip > ../../rootfs.cpio.gz
     cd ../../linux-4.6.2
     make mrproper defconfig bzImage
     make isoimage FDINITRD=../rootfs.cpio.gz
