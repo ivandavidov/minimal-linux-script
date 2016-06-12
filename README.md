@@ -10,7 +10,7 @@ After that simply run the below script. It doesn't require root privileges. In t
     rm -rf work
     mkdir work
     cd work
-    rm -f linux-3.15.6.tar.xz
+    rm -f linux-4.6.2.tar.xz
     wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.6.2.tar.xz
     rm -rf kernel
     mkdir kernel
