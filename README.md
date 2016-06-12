@@ -1,5 +1,5 @@
 # Minimal Linux Script
-One script which generates fully functional live Linux ISO image with minimal effort. This is based on the first published version of [Minimal Linux Live](http://github.com/ivandavidov/minimal). All comments and empty lines have been removed and the original script code has been modified to reduce the overall script length.
+One script which generates fully functional live Linux ISO image with minimal effort. This is based on the first published version of [Minimal Linux Live](http://github.com/ivandavidov/minimal) with some minor improvements taken from the next releases. All comments and empty lines have been removed and the original script code has been modified to reduce the overall script length.
 
 The script below uses **Linux kernel 4.6.2** and **BusyBox 1.24.2**. The source bundles are downloaded and compiled automatically. If you are using [Ubuntu](http://ubuntu.com) or [Linux Mint](http://linuxmint.com), you should be able to resolve all build dependencies by executing the following command:
 
@@ -10,12 +10,12 @@ After that simply run the below script. It doesn't require root privileges. In t
     wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.6.2.tar.xz
     tar -xvf linux-4.6.2.tar.xz
     cd linux-4.6.2
-    make clean defconfig vmlinux
+    make mrproper defconfig bzImage
     cd ..
     wget http://busybox.net/downloads/busybox-1.24.2.tar.bz2
     tar -xvf busybox-1.24.2.tar.bz2
     cd busybox-1.24.2
-    make clean defconfig
+    make distclean defconfig
     sed -i "s/.*CONFIG_STATIC.*/CONFIG_STATIC=y/" .config
     make busybox install
     cd _install
