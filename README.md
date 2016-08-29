@@ -1,15 +1,15 @@
 # Minimal Linux Script
 One script which generates fully functional live Linux ISO image with minimal effort (less than 25 lines of code). This is based on the first published version of [Minimal Linux Live](http://github.com/ivandavidov/minimal) with some minor improvements taken from the next releases. All empty lines and comments have been removed and the script has been modified to reduce the overall length.
 
-The script below uses **Linux kernel 4.6.2** and **BusyBox 1.24.2**. The source bundles are downloaded and compiled automatically. If you are using [Ubuntu](http://ubuntu.com) or [Linux Mint](http://linuxmint.com), you should be able to resolve all build dependencies by executing the following command:
+The script below uses **Linux kernel 4.7.2** and **BusyBox 1.24.2**. The source bundles are downloaded and compiled automatically. If you are using [Ubuntu](http://ubuntu.com) or [Linux Mint](http://linuxmint.com), you should be able to resolve all build dependencies by executing the following command:
 
     sudo apt-get install wget bc build-essential gawk syslinux genisoimage
 
 After that simply run the below script. It doesn't require root privileges. In the end you should have a bootable ISO image named `minimal_linux_live.iso` in the same directory where you executed the script.
 
-    wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.6.2.tar.xz
+    wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.7.2.tar.xz
     wget http://busybox.net/downloads/busybox-1.24.2.tar.bz2
-    tar -xvf linux-4.6.2.tar.xz
+    tar -xvf linux-4.7.2.tar.xz
     tar -xvf busybox-1.24.2.tar.bz2
     cd busybox-1.24.2
     make distclean defconfig
@@ -25,8 +25,8 @@ After that simply run the below script. It doesn't require root privileges. In t
     echo 'mount -t sysfs none /sys' >> init
     echo 'setsid cttyhack /bin/sh' >> init
     chmod +x init
-    find . | cpio -R +0:+0 -H newc -o | gzip > ../../rootfs.cpio.gz
-    cd ../../linux-4.6.2
+    find . | cpio -R root:root -H newc -o | gzip > ../../rootfs.cpio.gz
+    cd ../../linux-4.7.2
     make mrproper defconfig bzImage
     make isoimage FDINITRD=../rootfs.cpio.gz
     cp arch/x86/boot/image.iso ../minimal_linux_live.iso
