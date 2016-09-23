@@ -36,10 +36,10 @@ Note that this produces very small live Linux OS with working shell only. The ne
 
 **EDIT: 23-Sep-2016**
 
-The line `make isoimage FDINITRD=../rootfs.cpio.gz` may not work on your machine (and the ISO image will fail to boot) due to well known issues with Sysinux 5.x and the kernel's Makefile which doesn't support the Syslinux 5.x file dependencies. This is why in Minimal Linux Live the ISO generation process has been redesigned from scratch.
+The line `make isoimage FDINITRD=../rootfs.cpio.gz` may not work on your machine (and the ISO image will fail to boot) due to well known issues with Sysinux 5.x and the kernel's Makefile which doesn't support the Syslinux 5.x file dependencies. This is why in Minimal Linux Live the ISO image generation process has been redesigned from scratch.
 
 There is existing patch for the kernel's Makefile. Take a look here:
 
 https://github.com/ivandavidov/minimal/issues/10
 
-The ISO generation issue along with proper solution for it has been described in more details in the document [The DAO of Minimal Linnux Live Live](https://github.com/ivandavidov/minimal/blob/master/src/the_dao_of_minimal_linux_live.txt).
+The ISO generation issue along with proper solution for it has been described in the document [The DAO of Minimal Linnux Live Live](https://github.com/ivandavidov/minimal/blob/master/src/the_dao_of_minimal_linux_live.txt).
