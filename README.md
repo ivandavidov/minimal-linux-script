@@ -39,7 +39,7 @@ After that simply run the below script. It doesn't require root privileges. In t
     cp ../syslinux-6.03/bios/com32/elflink/ldlinux/ldlinux.c32 .
     cp kernel ./kernel.xz
     cp ../rootfs.cpio.xz ./rootfs.xz
-    echo 'default kernel.xz  initrd=rootfs.xz vga=ask' > ./isolinux.cfg
+    echo 'default kernel.xz  initrd=rootfs.xz' > ./isolinux.cfg
     genisoimage \
     	-J \
     	-r \
