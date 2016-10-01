@@ -50,6 +50,7 @@ After that simply run the below script. It doesn't require root privileges. In t
     	-no-emul-boot \
     	-boot-load-size 4 \
     	-boot-info-table \
+        -joliet-long \
     	./
     isohybrid -u ../minimal_linux_live.iso 2>/dev/null || true
     cd ..
