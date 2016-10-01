@@ -50,4 +50,4 @@ After that simply run the below script. It doesn't require root privileges. In t
     	./
     cd ..
 
-Note that this produces very small live Linux OS with working shell only. The network support has been implemented properly in the [Minimal Linux Live](http://github.com/ivandavidov/minimal) project which is extensively documented and more feature rich, yet still produces very small live Linux ISO image.
+Note that this script produces very small live Linux OS with working shell only and no network support. The network functionality has been implemented properly in the [Minimal Linux Live](http://github.com/ivandavidov/minimal) project which is extensively documented and more feature rich, yet still produces very small live Linux ISO image.
