@@ -1,7 +1,7 @@
 # Minimal Linux Script
 One script which generates fully functional live Linux ISO image with minimal effort (less than 25 lines of code). This is based on the first published version of [Minimal Linux Live](http://github.com/ivandavidov/minimal) with some minor improvements taken from the next releases. All empty lines and comments have been removed and the script has been modified to reduce the overall length.
 
-The script below uses **Linux kernel 4.7.2** and **BusyBox 1.24.2**. The source bundles are downloaded and compiled automatically. If you are using [Ubuntu](http://ubuntu.com) or [Linux Mint](http://linuxmint.com), you should be able to resolve all build dependencies by executing the following command:
+The script below uses **Linux kernel 4.7.6**, **BusyBox 1.24.2** and **Syslinux 6.03**. The source bundles are downloaded and compiled automatically. If you are using [Ubuntu](http://ubuntu.com) or [Linux Mint](http://linuxmint.com), you should be able to resolve all build dependencies by executing the following command:
 
     sudo apt-get install wget bc build-essential gawk syslinux genisoimage
 
