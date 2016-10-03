@@ -4,17 +4,17 @@
 
 One script which generates fully functional live Linux ISO image with minimal effort. This is based on the first published version of [Minimal Linux Live](http://github.com/ivandavidov/minimal) with some improvements taken from the next releases. All empty lines and comments have been removed and the script has been modified to reduce the overall length.
 
-The script below uses **Linux kernel 4.7.6**, **BusyBox 1.24.2** and **Syslinux 6.03**. The source bundles are downloaded and compiled automatically. If you are using [Ubuntu](http://ubuntu.com) or [Linux Mint](http://linuxmint.com), you should be able to resolve all build dependencies by executing the following command:
+The script below uses **Linux kernel 4.8**, **BusyBox 1.24.2** and **Syslinux 6.03**. The source bundles are downloaded and compiled automatically. If you are using [Ubuntu](http://ubuntu.com) or [Linux Mint](http://linuxmint.com), you should be able to resolve all build dependencies by executing the following command:
 
     sudo apt-get install wget bc build-essential gawk genisoimage
 
 After that simply run the below script. It doesn't require root privileges. In the end you should have a bootable ISO image named `minimal_linux_live.iso` in the same directory where you executed the script.
 
-    wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.7.6.tar.xz
+    wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.8.tar.xz
     wget http://busybox.net/downloads/busybox-1.24.2.tar.bz2
     wget http://kernel.org/pub/linux/utils/boot/syslinux/syslinux-6.03.tar.xz
     mkdir isoimage
-    tar -xvf linux-4.7.6.tar.xz
+    tar -xvf linux-4.8.tar.xz
     tar -xvf busybox-1.24.2.tar.bz2
     tar -xvf syslinux-6.03.tar.xz
     cd busybox-1.24.2
@@ -32,7 +32,7 @@ After that simply run the below script. It doesn't require root privileges. In t
     echo 'setsid cttyhack /bin/sh' >> init
     chmod +x init
     find . | cpio -R root:root -H newc -o | gzip > ../../isoimage/rootfs.gz
-    cd ../../linux-4.7.6
+    cd ../../linux-4.8
     make mrproper defconfig bzImage
     cp arch/x86/boot/bzImage ../isoimage/kernel.gz
     cd ../isoimage
