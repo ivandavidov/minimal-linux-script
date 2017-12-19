@@ -34,12 +34,9 @@ cp ../syslinux-$SYSLINUX_VERSION/bios/com32/elflink/ldlinux/ldlinux.c32 .
 echo 'default kernel.gz initrd=rootfs.gz' > ./isolinux.cfg
 xorriso \
   -as mkisofs \
-  -R \
-  -r \
   -o ../minimal_linux_live.iso \
   -b isolinux.bin \
   -c boot.cat \
-  -input-charset UTF-8 \
   -no-emul-boot \
   -boot-load-size 4 \
   -boot-info-table \
