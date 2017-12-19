@@ -39,18 +39,15 @@ After that simply run the below script. It doesn't require root privileges. In t
     cp ../syslinux-6.03/bios/core/isolinux.bin .
     cp ../syslinux-6.03/bios/com32/elflink/ldlinux/ldlinux.c32 .
     echo 'default kernel.gz initrd=rootfs.gz' > ./isolinux.cfg
-    genisoimage \
-        -J \
-        -r \
-        -o ../minimal_linux_live.iso \
-        -b isolinux.bin \
-        -c boot.cat \
-        -input-charset UTF-8 \
-        -no-emul-boot \
-        -boot-load-size 4 \
-        -boot-info-table \
-        -joliet-long \
-        ./
+    xorriso \
+    -as mkisofs \
+    -o ../minimal_linux_live.iso \
+    -b isolinux.bin \
+    -c boot.cat \
+    -no-emul-boot \
+    -boot-load-size 4 \
+    -boot-info-table \
+    ./
     cd ..
 
 Note that this script produces very small live Linux OS with working shell only and no network support. The network functionality has been implemented properly in the [Minimal Linux Live](http://github.com/ivandavidov/minimal) project which is extensively documented and more feature rich, yet still produces very small live Linux ISO image.
