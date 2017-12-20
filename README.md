@@ -6,7 +6,7 @@ One script which generates fully functional live Linux ISO image with minimal ef
 
 The script below uses **Linux kernel 4.7.6**, **BusyBox 1.24.2** and **Syslinux 6.03**. The source bundles are downloaded and compiled automatically. If you are using [Ubuntu](http://ubuntu.com) or [Linux Mint](http://linuxmint.com), you should be able to resolve all build dependencies by executing the following command:
 
-    sudo apt-get install wget bc build-essential gawk genisoimage
+    sudo apt-get install wget bc build-essential gawk xorriso
 
 After that simply run the below script. It doesn't require root privileges. In the end you should have a bootable ISO image named `minimal_linux_live.iso` in the same directory where you executed the script.
 
@@ -39,17 +39,14 @@ After that simply run the below script. It doesn't require root privileges. In t
     cp ../syslinux-6.03/bios/core/isolinux.bin .
     cp ../syslinux-6.03/bios/com32/elflink/ldlinux/ldlinux.c32 .
     echo 'default kernel.gz initrd=rootfs.gz' > ./isolinux.cfg
-    genisoimage \
-        -J \
-        -r \
+    xorriso \
+        -as mkisofs \
         -o ../minimal_linux_live.iso \
         -b isolinux.bin \
         -c boot.cat \
-        -input-charset UTF-8 \
         -no-emul-boot \
         -boot-load-size 4 \
         -boot-info-table \
-        -joliet-long \
         ./
     cd ..
 
