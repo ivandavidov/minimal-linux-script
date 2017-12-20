@@ -40,13 +40,13 @@ After that simply run the below script. It doesn't require root privileges. In t
     cp ../syslinux-6.03/bios/com32/elflink/ldlinux/ldlinux.c32 .
     echo 'default kernel.gz initrd=rootfs.gz' > ./isolinux.cfg
     xorriso \
-    -as mkisofs \
-    -o ../minimal_linux_live.iso \
-    -b isolinux.bin \
-    -c boot.cat \
-    -no-emul-boot \
-    -boot-load-size 4 \
-    -boot-info-table \
+        -as mkisofs \
+        -o ../minimal_linux_live.iso \
+        -b isolinux.bin \
+        -c boot.cat \
+        -no-emul-boot \
+        -boot-load-size 4 \
+        -boot-info-table \
     ./
     cd ..
 
