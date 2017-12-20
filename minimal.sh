@@ -40,7 +40,7 @@ xorriso \
   -no-emul-boot \
   -boot-load-size 4 \
   -boot-info-table \
-./
+  ./
 cd ..
 set +ex
 
