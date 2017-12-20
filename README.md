@@ -47,7 +47,7 @@ After that simply run the below script. It doesn't require root privileges. In t
         -no-emul-boot \
         -boot-load-size 4 \
         -boot-info-table \
-    ./
+        ./
     cd ..
 
 Note that this script produces very small live Linux OS with working shell only and no network support. The network functionality has been implemented properly in the [Minimal Linux Live](http://github.com/ivandavidov/minimal) project which is extensively documented and more feature rich, yet still produces very small live Linux ISO image.
