@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
-KERNEL_VERSION=4.12.3
-BUSYBOX_VERSION=1.27.1
+KERNEL_VERSION=4.14.9
+BUSYBOX_VERSION=1.27.2
 SYSLINUX_VERSION=6.03
 wget -O kernel.tar.xz http://kernel.org/pub/linux/kernel/v4.x/linux-$KERNEL_VERSION.tar.xz
 wget -O busybox.tar.bz2 http://busybox.net/downloads/busybox-$BUSYBOX_VERSION.tar.bz2
@@ -19,9 +19,9 @@ rm -f linuxrc
 mkdir dev proc sys
 echo '#!/bin/sh' > init
 echo 'dmesg -n 1' >> init
-echo 'mount -t devtmpfs none /dev' >> init
 echo 'mount -t proc none /proc' >> init
 echo 'mount -t sysfs none /sys' >> init
+echo 'mount -t devtmpfs none /dev' >> init
 echo 'setsid cttyhack /bin/sh' >> init
 chmod +x init
 find . | cpio -R root:root -H newc -o | gzip > ../../isoimage/rootfs.gz
