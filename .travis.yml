@@ -1,0 +1,17 @@
+---
+
+language: generic
+dist: trusty
+sudo: required
+
+addons:
+  apt:
+    packages:
+      - wget
+      - bc
+      - build-essential
+      - gawk
+      - xorriso
+
+script:
+  - minimal.sh
