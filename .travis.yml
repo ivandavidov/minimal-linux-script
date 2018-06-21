@@ -2,8 +2,8 @@
 
 language: generic
 dist: trusty
-sudo: false
+sudo: required
 
 script:
-- sudo apt install wget bc build-essential gawk xorriso
+- sudo apt-get install wget bc build-essential gawk xorriso
 - ./minimal.sh
