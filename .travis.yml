@@ -13,5 +13,8 @@ addons:
       - gawk
       - xorriso
 
+services:
+  - docker
+
 script:
-  - minimal.sh
+  - ./minimal.sh
