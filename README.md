@@ -1,4 +1,4 @@
-# Minimal Linux Script
+# Minimal Linux Script [<img align="right" src="https://travis-ci.org/ivandavidov/minimal-linux-script.svg?branch=master">](https://travis-ci.org/ivandavidov/minimal-linux-script)
 
 One script which generates fully functional live Linux ISO image with minimal effort. This is based on the first published version of [Minimal Linux Live](http://github.com/ivandavidov/minimal) with some improvements taken from the next releases. All empty lines and comments have been removed and the script has been modified to reduce the overall length.
 
