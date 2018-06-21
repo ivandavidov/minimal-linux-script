@@ -5,5 +5,6 @@ dist: trusty
 sudo: required
 
 script:
+- sudo apt-get update
 - sudo apt-get install wget bc build-essential gawk xorriso
 - ./minimal.sh
