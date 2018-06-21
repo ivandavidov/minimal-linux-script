@@ -2,19 +2,8 @@
 
 language: generic
 dist: trusty
-sudo: required
-
-addons:
-  apt:
-    packages:
-      - wget
-      - bc
-      - build-essential
-      - gawk
-      - xorriso
-
-services:
-  - docker
+sudo: false
 
 script:
-  - ./minimal.sh
+- sudo apt install wget bc build-essential gawk xorriso
+- ./minimal.sh
