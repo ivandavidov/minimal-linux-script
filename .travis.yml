@@ -6,5 +6,5 @@ sudo: required
 
 script:
 - sudo apt-get update
-- sudo apt-get -y install wget bc build-essential gawk xorriso
+- sudo apt-get -y install wget make gawk gcc bc bison flex xorriso libelf-dev libssl-dev
 - ./minimal.sh
