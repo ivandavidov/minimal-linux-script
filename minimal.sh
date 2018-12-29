@@ -12,7 +12,7 @@ tar -xvf syslinux.tar.xz
 mkdir isoimage
 cd busybox-${BUSYBOX_VERSION}
 make distclean defconfig
-sed -i "s/.*CONFIG_STATIC.*/CONFIG_STATIC=y/" .config
+sed -i "s|.*CONFIG_STATIC.*|CONFIG_STATIC=y|" .config
 make busybox install
 cd _install
 rm -f linuxrc
@@ -43,4 +43,3 @@ xorriso \
   ./
 cd ..
 set +ex
-
