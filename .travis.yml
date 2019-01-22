@@ -9,6 +9,9 @@ script:
 - sudo apt-get -y dist-upgrade
 #- sudo apt-get -y install wget make gawk gcc bc bison flex xorriso libelf-dev libssl-dev
 #- ./minimal.sh
+- cat /proc/cpuinfo
+- cat /proc/meminfo
+- sudo apt-get install -y virtualbox
 - wget -O ~/bosh https://github.com/cloudfoundry/bosh-cli/releases/download/v5.4.0/bosh-cli-5.4.0-linux-amd64
 - chmod +x ~/bosh
 - git clone https://github.com/cloudfoundry/bosh-deployment ~/bosh-deployment
