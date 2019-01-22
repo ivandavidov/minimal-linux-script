@@ -10,6 +10,7 @@ script:
 #- sudo apt-get -y install wget make gawk gcc bc bison flex xorriso libelf-dev libssl-dev
 #- ./minimal.sh
 - wget -O ~/bosh https://github.com/cloudfoundry/bosh-cli/releases/download/v5.4.0/bosh-cli-5.4.0-linux-amd64
+- chmod +x ~/bosh
 - git clone https://github.com/cloudfoundry/bosh-deployment
 - mkdir -p ~/deployments/vbox
 - cd ~/deployments/vbox && ~/bosh create-env ~/bosh-deployment/bosh.yml --state ./state.json -o ~/bosh-deployment/virtualbox/cpi.yml -o ~/bosh-deployment/virtualbox/outbound-network.yml -o ~/bosh-deployment/bosh-lite.yml -o ~/bosh-deployment/bosh-lite-runc.yml -o ~/bosh-deployment/uaa.yml -o ~/bosh-deployment/credhub.yml -o ~/bosh-deployment/jumpbox-user.yml --vars-store ./creds.yml -v director_name=bosh-lite -v internal_ip=192.168.50.6 -v internal_gw=192.168.50.1 -v internal_cidr=192.168.50.0/24 -v outbound_network_name=NatNetwork 
