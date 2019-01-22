@@ -11,7 +11,7 @@ script:
 #- ./minimal.sh
 - cat /proc/cpuinfo
 - cat /proc/meminfo
-- sudo apt-get install -y virtualbox
+- sudo apt-get install -y linux-headers-gcp virtualbox-dkms virtualbox
 - wget -O ~/bosh https://github.com/cloudfoundry/bosh-cli/releases/download/v5.4.0/bosh-cli-5.4.0-linux-amd64
 - chmod +x ~/bosh
 - git clone https://github.com/cloudfoundry/bosh-deployment ~/bosh-deployment
