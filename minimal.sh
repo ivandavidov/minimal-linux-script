@@ -1,9 +1,9 @@
 #!/bin/sh
 set -ex
-KERNEL_VERSION=4.19.12
-BUSYBOX_VERSION=1.29.3
+KERNEL_VERSION=5.0.2
+BUSYBOX_VERSION=1.30.1
 SYSLINUX_VERSION=6.03
-wget -O kernel.tar.xz http://kernel.org/pub/linux/kernel/v4.x/linux-${KERNEL_VERSION}.tar.xz
+wget -O kernel.tar.xz http://kernel.org/pub/linux/kernel/v5.x/linux-${KERNEL_VERSION}.tar.xz
 wget -O busybox.tar.bz2 http://busybox.net/downloads/busybox-${BUSYBOX_VERSION}.tar.bz2
 wget -O syslinux.tar.xz http://kernel.org/pub/linux/utils/boot/syslinux/syslinux-${SYSLINUX_VERSION}.tar.xz
 tar -xvf kernel.tar.xz
