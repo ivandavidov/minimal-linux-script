@@ -3,13 +3,19 @@ set -ex
 KERNEL_VERSION=5.0.2
 BUSYBOX_VERSION=1.30.1
 SYSLINUX_VERSION=6.03
+KERNEL_MD5=911065be61e90bc9afefd2c0ffa944c1
+BUSYBOX_MD5=4f72fc6abd736d5f4741fc4a2485547a
+SYSLINUX_MD5=92a253df9211e9c20172796ecf388f13
+echo "$KERNEL_MD5 kernel.tar.xz" | md5sum -c ||
 wget -O kernel.tar.xz http://kernel.org/pub/linux/kernel/v5.x/linux-${KERNEL_VERSION}.tar.xz
+echo "$BUSYBOX_MD5 busybox.tar.bz2" | md5sum -c ||
 wget -O busybox.tar.bz2 http://busybox.net/downloads/busybox-${BUSYBOX_VERSION}.tar.bz2
+echo "$SYSLINUX_MD5 syslinux.tar.xz" | md5sum -c ||
 wget -O syslinux.tar.xz http://kernel.org/pub/linux/utils/boot/syslinux/syslinux-${SYSLINUX_VERSION}.tar.xz
 tar -xvf kernel.tar.xz
 tar -xvf busybox.tar.bz2
 tar -xvf syslinux.tar.xz
-mkdir isoimage
+mkdir -p isoimage
 cd busybox-${BUSYBOX_VERSION}
 make distclean defconfig
 sed -i "s|.*CONFIG_STATIC.*|CONFIG_STATIC=y|" .config
