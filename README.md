@@ -1,4 +1,4 @@
-# Minimal Linux Script [<img align="right" src="https://img.shields.io/badge/Donate-PayPal-green.svg">](https://www.paypal.me/MinimalLinuxLive)
+# Minimal Linux Script
 
 One script which generates fully functional live Linux ISO image with minimal effort. This is based on the first published version of [Minimal Linux Live](http://github.com/ivandavidov/minimal) with some improvements taken from the next releases. All empty lines and comments have been removed and the script has been modified to reduce the overall length.
 
@@ -49,5 +49,3 @@ After that simply run the below script. It doesn't require root privileges. In t
     cd ..
 
 Note that this script produces very small live Linux OS with working shell only and no network support. The network functionality has been implemented properly in the [Minimal Linux Live](http://github.com/ivandavidov/minimal) project which is extensively documented and more feature rich, yet still produces very small live Linux ISO image.
-
-If you find this project useful, you can treat me to lunch via [PayPal donation](https://www.paypal.me/MinimalLinuxLive). Thank you!
